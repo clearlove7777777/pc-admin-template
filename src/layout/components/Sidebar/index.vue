@@ -13,7 +13,7 @@
         :collapse-transition="false"
         mode="vertical"
       >
-        <div class='header-title' v-if='!isCollapse'>贝塔商旅</div>
+        <div class='header-title' v-if='!isCollapse'>贝塔商旅企业平台</div>
         <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
@@ -62,7 +62,7 @@ export default {
   color: #fff;
   height: 60px;
   box-sizing: border-box;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   line-height: 60px;
   background-color: #1f2d3d;
