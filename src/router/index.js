@@ -63,7 +63,7 @@ export const constantRoutes = [
     meta: { title: '公司管理', icon: 'example' },
     children: [
       {
-        path: 'table',
+        path: 'companyManageList',
         name: 'Table',
         component: () => import('@/views/table/index'),
         meta: { title: '公司管理', icon: 'table' }

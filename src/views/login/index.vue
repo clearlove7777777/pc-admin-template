@@ -1,9 +1,21 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+    
+    <nav class="tab-nav">
+      <div class='nav-title'>
+        贝塔商旅
+        <span class='nav-title-des'>差旅费用的节约专家</span>
+      </div>
+      <div class="handle">
+        <el-button class="btn" style="marginRight: 10px">登录</el-button>
+        <el-button class="btn" type="primary">注册</el-button>
+      </div>
+    </nav>
 
+    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+      
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">企业客户登录</h3>
       </div>
 
       <el-form-item prop="username">
@@ -106,20 +118,21 @@ export default {
       })
     },
     handleLogin() {
-      this.$refs.loginForm.validate(valid => {
-        if (valid) {
-          this.loading = true
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
-            this.loading = false
-          }).catch(() => {
-            this.loading = false
-          })
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
+      // this.$refs.loginForm.validate(valid => {
+      //   if (valid) {
+      //     this.loading = true
+      //     this.$store.dispatch('user/login', this.loginForm).then(() => {
+      //       this.$router.push({ path: this.redirect || '/' })
+      //       this.loading = false
+      //     }).catch(() => {
+      //       this.loading = false
+      //     })
+      //   } else {
+      //     console.log('error submit!!')
+      //     return false
+      //   }
+      // })
+      this.$router.push({ path: this.redirect || '/' })
     }
   }
 }
@@ -141,6 +154,8 @@ $cursor: #fff;
 
 /* reset element-ui css */
 .login-container {
+  
+
   .el-input {
     display: inline-block;
     height: 47px;
@@ -182,6 +197,29 @@ $light_gray:#eee;
   width: 100%;
   background-color: $bg;
   overflow: hidden;
+  .tab-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    width: 100%;
+    height: 50px;
+    background: #efefef;
+    .nav-title {
+      line-height: 50px;
+      font-size: 26px;
+      .nav-title-des{
+        font-size: 16px;
+      }
+    }
+    .handle {
+      line-height: 50px;
+      .btn{
+        width: 100px;
+        height: 40px;
+        border-radius: 8px;
+      }
+    }
+  }
 
   .login-form {
     position: relative;
